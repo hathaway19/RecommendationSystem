@@ -50,25 +50,21 @@ if __name__ == "__main__":
 
     # Init a new column for our weighted scores
     df_final['weighted_score'] = ''
+    # df_final['weighted_score'] = df_final['weighted_score'].astype(float)
 
     # Calculate the weighted score for each whiskey
     weighted_scores = []   
     for index, row in df_final.iterrows():
         v = row['count']
         R = row['score']
+        weighted_scores.append((v/(v+20) * R) + (20/(20+v) * C))
 
-        weighted_scores.append(v/(v+20) * R) + (20/(20+v) * C)
-        # df_final['weighted_score'] = index
-    print(weighted_scores)
-    # df_final['weighted_score'] = weighted_scores
-
-    for index, row in df_final.iterrows():
-        print(row['weighted_score'])
+    df_final['weighted_score'] = weighted_scores
 
     # Sort whiskeys based on score calculated above
-    df_final = df_final.sort_values('score', ascending=False)
+    df_final = df_final.sort_values('weighted_score', ascending=False)
     
-    # print(df_final[['count', 'score', 'weighted_score']])
+    print(df_final[['count', 'score', 'weighted_score']])
     
     ### Scaterplot
     # plt.scatter(df_count_for_whiskey, df_score_for_whiskey)
