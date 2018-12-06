@@ -1,0 +1,14 @@
+Number of Reviews: 29351
+
+First 5 entries (after removing cols 'Timestamp, 'Link to Reddit Review', 'Date of Review': 
+                            Whisky Name  Reviewer Rating
+0  Littlemill 24 1988 Berry Bros & Rudd             87.0
+1                            100 Pipers             68.0
+2                1792 225th Anniversary             80.0
+3                       1792 Full Proof             85.0
+4                       1792 Full Proof             69.0      Whisky Name  Reviewer Rating
+106  Aberfeldy 12             80.0
+107  Aberfeldy 12             75.0
+108  Aberfeldy 12             82.0
+109  Aberfeldy 12             78.0
+110  Aberfeldy 12             75.0
