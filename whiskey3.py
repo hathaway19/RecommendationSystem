@@ -14,7 +14,7 @@ if __name__ == "__main__":
     df = pd.read_csv("data\whiskey\whiskey.csv")
 
     # Drop the columns that we don't need
-    df = df.drop(['Timestamp', 'Link To Reddit Review', 'Date of Review', "Reviewer's Reddit Username", 'Full Bottle Price Paid', 'Whisky Region or Style'], axis=1)
+    df = df.drop(['Timestamp', 'Link To Reddit Review', 'Date of Review', "Reviewer's Reddit Username", 'Full Bottle Price Paid'], axis=1)
 
     # Get rid of all non-numeric values in 'Reviewer Rating'
     df['Reviewer Rating'] = df['Reviewer Rating'].str.extract('(\d+)', expand=False)
@@ -32,7 +32,8 @@ if __name__ == "__main__":
 
     # Get rid of extra white space to ensure grouping (for reviews of the same whiskey) work
     df['Whisky Name'] = df['Whisky Name'].str.strip()
-
+    df['Whisky Region or Style'] = df['Whisky Region or Style'].str.strip()
+    
     # Get rid of all whiskeys that have less than 20 reviews
     df = df[df['Whisky Name'].isin(df['Whisky Name'].value_counts()[df['Whisky Name'].value_counts()>=20].index)]
 
@@ -87,7 +88,7 @@ if __name__ == "__main__":
     # plt.title('Reviews For Whiskey')
     # plt.show()
 
-    df_final = df_final.sort_values('count', ascending=True)
-    df_final['count'].head(20).plot(kind="bar")
-    plt.xlabel('Num. Reviews')
-    plt.show()
+    # df_final = df_final.sort_values('count', ascending=True)
+    # df_final['count'].head(20).plot(kind="bar")
+    # plt.xlabel('Num. Reviews')
+    # plt.show()
